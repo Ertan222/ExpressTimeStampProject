@@ -32,7 +32,7 @@ app.get("/api/:date?", (req,res) => {
     const utcStamp = new Date().toUTCString();
     
     res.json({
-      unix: `${unixStamp}`,
+      unix: unixStamp,
       utc: `${utcStamp}`
     }
     );
@@ -47,7 +47,7 @@ app.get("/api/:date?", (req,res) => {
 
     res.json({
 
-      unix : `${req.params.date}`,
+      unix : numberDate,
       utc : `${utcStamp}`
 
     });
@@ -72,7 +72,7 @@ app.get("/api/:date?", (req,res) => {
     else {
       res.json({
       
-        unix : `${unixStamp}`,
+        unix : unixStamp,
         utc : `${utcStamp}`
   
       });
