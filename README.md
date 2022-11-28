@@ -4,4 +4,4 @@ This is the boilerplate code for the Timestamp Microservice project. Instruction
 
 
  # Ertan:
-I completed this project for freeCodeCamp's back end development and apı's unit and only the last commit is mine. I am not claming this project. 
+I completed this project for freeCodeCamp's back end development and apıs unit and only the last commit is mine. I am not claming this project. 
