@@ -25,6 +25,63 @@ app.get("/api/hello", function (req, res) {
 });
 
 
+app.get("/api/:date?", (req,res) => {
+  
+  if(req.params.date == null) {
+    const unixStamp = Date.now();
+    const utcStamp = new Date().toUTCString();
+    
+    res.json({
+      unix: `${unixStamp}`,
+      utc: `${utcStamp}`
+    }
+    );
+  }
+
+  const stringDate = req.params.date.toString();
+  const numberDate = parseInt(req.params.date);
+
+  if(numberDate == stringDate) {
+    const utcStamp = new Date(numberDate).toUTCString();
+    
+
+    res.json({
+
+      unix : `${req.params.date}`,
+      utc : `${utcStamp}`
+
+    });
+
+
+  }
+
+  else {
+    
+    const unixStamp = Date.parse(req.params.date);
+    const utcStamp = new Date(req.params.date).toUTCString();
+
+    
+    if(unixStamp === "Invalid Date" | utcStamp === "Invalid Date") {
+
+      res.json({
+        error: "Invalid Date"
+      });
+
+    }
+
+    else {
+      res.json({
+      
+        unix : `${unixStamp}`,
+        utc : `${utcStamp}`
+  
+      });
+    }
+
+  }
+
+});
+
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
